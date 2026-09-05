@@ -3,7 +3,7 @@ name: podcast-study
 description: "将播客或访谈的标题、链接整理为 Google Docs 精读笔记，原生完整字幕优先，必要时安装 Buzz 和本地模型转录，输出个人 takeaway、带时间链接的思维导图与关键问题解释。适用于启动、恢复或更新播客整理任务；单纯讨论工作流时不要下载媒体或改动文档。"
 metadata:
   workflow-version: "2.1"
-  version: "2.1.0"
+  version: "2.1.1"
 ---
 
 # 播客精读

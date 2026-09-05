@@ -1,4 +1,0 @@
-interface:
-  display_name: "播客精读"
-  short_description: "原生字幕优先，必要时用 Buzz 本地转录，生成带思维导图的 Google Docs 精读笔记"
-  default_prompt: "使用 $podcast-study 整理这个播客标题或链接，生成 Google Docs，并在确认完成后清理本次临时音频和转录文件。"

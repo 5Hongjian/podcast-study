@@ -19,7 +19,7 @@ def main():
                                      "--exclude-standard", "-z"]).decode().split("\0")
     files = sorted(set(filter(None, files)))
     allowed_roots = {".github", "docs", "scripts", "skills", "tests"}
-    allowed_files = {".gitignore", "README.md", "AGENTS.md", "CONTRIBUTING.md", "CHANGELOG.md", "VERSION"}
+    allowed_files = {".gitignore", "README.md", "AGENTS.md", "CHANGELOG.md", "VERSION"}
     disallowed_parts = {"runs", "state", "local", "backups", "sources", "podcast-work", ".env"}
     patterns = [
         r"/Users/[A-Za-z0-9_.-]+/", r"/home/[A-Za-z0-9_.-]+/",
