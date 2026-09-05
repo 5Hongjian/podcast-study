@@ -1,0 +1,26 @@
+name: 技能改进
+description: 记录一次可验证的工作流或文档体验改进
+title: '[改进] '
+body:
+  - type: markdown
+    attributes:
+      value: 请只使用脱敏或虚构示例，不要上传真实任务记录、私人文档链接、音频、字幕或凭证。
+  - type: input
+    id: version
+    attributes:
+      label: 技能版本
+      description: 安装时的版本或提交标识
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 什么情况下，出现了什么问题？
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为与验收条件
+    validations:
+      required: true

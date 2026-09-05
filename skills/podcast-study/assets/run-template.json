@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "workflow_version": "2.1",
+  "record_revision": 1,
+  "run_id": null,
+  "created_at": null,
+  "updated_at": null,
+  "status": "running",
+  "stage": "identify",
+  "episode": {
+    "title": null,
+    "platform": null,
+    "episode_id": null,
+    "canonical_url": null
+  },
+  "media_sources": [],
+  "caption_search": {
+    "result": null,
+    "attempts": [],
+    "reason": null
+  },
+  "local_setup": {
+    "os": null,
+    "architecture": null,
+    "buzz_path": null,
+    "buzz_version": null,
+    "model": null,
+    "backend": null,
+    "ready": false
+  },
+  "transcription": {
+    "task_id": null,
+    "status": "not_started",
+    "source_version_id": null,
+    "output_paths": []
+  },
+  "stage_results": {},
+  "working_dir": null,
+  "files": [],
+  "document": {
+    "id": null,
+    "url": null,
+    "revision_id": null,
+    "last_readback_at": null
+  },
+  "topic_index": [],
+  "checks": {
+    "input_coverage": "pending",
+    "content_review": "pending",
+    "docs_readback": "pending",
+    "mindmap": "pending",
+    "navigation": "pending",
+    "layout": "pending"
+  },
+  "cleanup": {
+    "eligible": false,
+    "status": "not_started",
+    "receipts": []
+  },
+  "limitations": [],
+  "last_error": null,
+  "skill_version": "2.1.0",
+  "configuration": {
+    "sources": [],
+    "overrides_summary": null
+  }
+}
