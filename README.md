@@ -44,12 +44,3 @@ python3 scripts/install.py
 > 使用 $podcast-study 整理这个播客：〈标题或链接〉。完成 Google Docs 并核验后，再清理本期临时音频和转录文件。
 
 新用户只有在确实需要本地转录时，才按 [Buzz 安装指引](skills/podcast-study/references/buzz-setup.md) 检查设备、安装缺少的 Buzz 与合适模型。已有完整字幕时不下载这些组件。
-
-## 检查
-
-```sh
-python3 scripts/validate.py
-python3 -m unittest discover -s tests -v
-```
-
-自动检查覆盖发布文件、空白模板及安装升级的数据保留。字幕判断、内容解释和 Google Docs 实际呈现仍需按 [行为评估场景](docs/evaluation-cases.md) 验证，不能用静态检查冒充端到端运行成功。
