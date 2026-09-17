@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "workflow_version": "2.1",
+  "workflow_version": "2.4",
   "record_revision": 1,
   "run_id": null,
   "created_at": null,
@@ -34,23 +34,49 @@
     "source_version_id": null,
     "output_paths": []
   },
+  "transcript": {
+    "source_version_id": null,
+    "transcript_sha256": null,
+    "raw_path": null,
+    "package_path": null
+  },
+  "input_review": {
+    "source_version_id": null,
+    "transcript_sha256": null,
+    "media_duration_seconds": null,
+    "checks": {
+      "identity": {
+        "status": "pending",
+        "evidence": null,
+        "basis": null
+      },
+      "coverage": {
+        "status": "pending",
+        "evidence": null,
+        "basis": null
+      },
+      "fidelity": {
+        "status": "pending",
+        "evidence": null,
+        "basis": null
+      },
+      "timing": {
+        "status": "pending",
+        "evidence": null,
+        "basis": null
+      }
+    },
+    "issues": []
+  },
   "stage_results": {},
   "working_dir": null,
   "files": [],
-  "document": {
-    "id": null,
-    "url": null,
-    "revision_id": null,
-    "last_readback_at": null
-  },
-  "topic_index": [],
   "checks": {
-    "input_coverage": "pending",
-    "content_review": "pending",
-    "docs_readback": "pending",
     "mindmap": "pending",
     "navigation": "pending",
-    "layout": "pending"
+    "layout": "pending",
+    "site_readback": "pending",
+    "notes_persistence": "pending"
   },
   "cleanup": {
     "eligible": false,
@@ -59,9 +85,16 @@
   },
   "limitations": [],
   "last_error": null,
-  "skill_version": "2.1.1",
-  "configuration": {
-    "sources": [],
-    "overrides_summary": null
+  "skill_version": "3.1.0",
+  "content": {
+    "draft_path": null,
+    "review_path": null,
+    "report_path": null,
+    "repair_rounds": null
+  },
+  "site": {
+    "url": null,
+    "revision_id": null,
+    "last_verified_at": null
   }
 }
