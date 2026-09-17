@@ -20,6 +20,8 @@ def inside(path, parent):
 def fingerprint(directory):
     result = {}
     for path in sorted(directory.rglob("*")):
+        if "__pycache__" in path.relative_to(directory).parts or path.suffix in {".pyc", ".pyo"}:
+            continue
         if path.is_symlink():
             raise ValueError("Skill contents must not contain symbolic links")
         if path.is_file():
@@ -50,7 +52,8 @@ def install(source, destination, state):
         destination.parent.mkdir(parents=True, exist_ok=True)
         staging = Path(tempfile.mkdtemp(prefix=".podcast-study-stage-", dir=destination.parent))
         try:
-            shutil.copytree(source, staging, dirs_exist_ok=True)
+            shutil.copytree(source, staging, dirs_exist_ok=True,
+                            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"))
             if fingerprint(staging) != expected:
                 raise OSError("Staged copy did not match source")
             if existing:
@@ -67,16 +70,6 @@ def install(source, destination, state):
             if staging.exists():
                 shutil.rmtree(staging)
     state.mkdir(parents=True, exist_ok=True)
-    stubs = {
-        "preferences.md": "# 我的偏好覆盖\n\n尚未设置。未覆盖的项目沿用技能随附的默认偏好。\n",
-        "document-format.md": "# 我的文档结构覆盖\n\n尚未设置。沿用技能随附的默认文档结构。只在此写需要长期改变的顺序、章节或呈现要求。\n",
-    }
-    for name, content in stubs.items():
-        try:
-            with (state / name).open("x", encoding="utf-8") as stream:
-                stream.write(content)
-        except FileExistsError:
-            pass
     return {"changed": changed, "destination": str(destination), "state": str(state),
             "backup": str(backup) if backup else None}
 
@@ -93,7 +86,7 @@ def main():
     except (OSError, ValueError) as error:
         parser.exit(1, "Installation stopped: " + str(error) + "\n")
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    print("Installed. User overrides and episode records were preserved. Restart Codex if the skill does not appear.")
+    print("Installed. Existing task records, source files, and other local state were preserved. Restart Codex if the skill does not appear.")
 
 
 if __name__ == "__main__":

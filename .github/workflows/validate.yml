@@ -15,5 +15,5 @@ jobs:
           persist-credentials: false
       - name: Validate public files and templates
         run: python3 scripts/validate.py
-      - name: Test install and update preservation
+      - name: Run regression tests
         run: python3 -m unittest discover -s tests -v

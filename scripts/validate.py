@@ -68,14 +68,24 @@ def main():
     for key in ("run_id", "created_at", "updated_at", "working_dir", "last_error"):
         if run[key] is not None:
             errors.append(f"Run template contains populated {key}")
-    for key in ("episode", "document"):
+    for key in ("episode", "transcript", "content", "site"):
         if any(value is not None for value in run[key].values()):
             errors.append(f"Run template contains populated {key}")
-    for key in ("files", "media_sources", "topic_index", "limitations"):
+    for key in ("files", "media_sources", "limitations"):
         if run[key]:
             errors.append(f"Run template contains populated {key}")
     if run["cleanup"] != {"eligible": False, "status": "not_started", "receipts": []}:
         errors.append("Run template contains cleanup authorization/results")
+    expected_review = {
+        "source_version_id": None,
+        "transcript_sha256": None,
+        "media_duration_seconds": None,
+        "checks": {name: {"status": "pending", "evidence": None, "basis": None}
+                   for name in ("identity", "coverage", "fidelity", "timing")},
+        "issues": [],
+    }
+    if run.get("input_review") != expected_review:
+        errors.append("Run template contains input assessments or omits pending checks")
     if errors:
         print("\n".join(errors), file=sys.stderr)
         return 1
